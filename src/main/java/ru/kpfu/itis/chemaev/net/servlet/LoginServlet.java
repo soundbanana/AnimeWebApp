@@ -29,7 +29,7 @@ public class LoginServlet extends HttpServlet {
             httpCookie.setMaxAge(24 * 60 * 60);
             resp.addCookie(httpCookie);
 
-            resp.sendRedirect("main.jsp");
+            resp.sendRedirect("main.html");
         } else {
             resp.sendRedirect("/login");
         }
