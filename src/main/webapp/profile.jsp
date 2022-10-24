@@ -21,7 +21,7 @@
   Cookie[] cookies = request.getCookies();
   if (cookies != null) {
     for (Cookie cookie : cookies) {
-      if ("username".equals(cookie.getName())) {
+      if ("login".equals(cookie.getName())) {
         cookieUser = cookie.getValue();
       }
       if ("JSESSIONID".equals(cookie.getName())) {
