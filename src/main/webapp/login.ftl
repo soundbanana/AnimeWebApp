@@ -14,6 +14,10 @@
     <br>
     <input type="submit" value="Login">
     <br>
+    <label>
+        <input type="checkbox" name="remember_me" checked/>
+        Remember me
+    </label>
     <a href="/registration.ftl">Register now</a>
 </form>
 </body>

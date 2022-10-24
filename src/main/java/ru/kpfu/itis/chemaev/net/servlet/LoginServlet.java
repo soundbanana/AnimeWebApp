@@ -23,7 +23,8 @@ public class LoginServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
         String login = req.getParameter("login");
         String password = req.getParameter("password");
-
+        String rememberMe = req.getParameter("remember_me");
+        
         String encryptPassword = PasswordUtil.encrypt(password);
 
         User tempUser = userDao.get(login);
@@ -33,10 +34,11 @@ public class LoginServlet extends HttpServlet {
                 httpSession.setAttribute("login", login);
                 httpSession.setMaxInactiveInterval(60 * 60);
 
-                Cookie httpCookie = new Cookie("username", login);
-                httpCookie.setMaxAge(24 * 60 * 60);
-                resp.addCookie(httpCookie);
-
+                if (rememberMe != null) {
+                    Cookie httpCookie = new Cookie("username", login);
+                    httpCookie.setMaxAge(24 * 60 * 60);
+                    resp.addCookie(httpCookie);
+                }
                 resp.sendRedirect("/");
             } else {
                 System.out.println("Invalid login or password");
