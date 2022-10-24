@@ -13,6 +13,8 @@
     <input type="password" name="password"/>
     <br>
     <input type="submit" value="Login">
+    <br>
+    <a href="/registration.ftl">Register now</a>
 </form>
 </body>
 </html>

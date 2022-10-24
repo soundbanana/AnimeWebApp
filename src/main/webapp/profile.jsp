@@ -7,10 +7,10 @@
 
 <%
   String user = null;
-  String sessionUser = (String) session.getAttribute("username");
+  String sessionUser = (String) session.getAttribute("login");
 
   if (sessionUser == null) {
-    response.sendRedirect("login.html");
+    response.sendRedirect("login.ftl");
   } else {
     user = sessionUser;
   }
@@ -42,7 +42,7 @@
 </h2>
 
 <h3>
-  <a href="/main.html">Main</a>
+  <a href="/main.ftl">Main</a>
 </h3>
 
 </body>

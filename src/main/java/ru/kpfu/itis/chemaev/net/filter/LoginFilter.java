@@ -7,11 +7,11 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
-@WebFilter(filterName = "authenticationFilter", urlPatterns = "/*")
-public class AuthenticationFilter implements Filter {
+@WebFilter(filterName = "authenticationFilter", urlPatterns = {"/", "/main", "/profile"})
+public class LoginFilter implements Filter {
+
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
-        Filter.super.init(filterConfig);
     }
 
     @Override
@@ -20,9 +20,10 @@ public class AuthenticationFilter implements Filter {
         HttpServletResponse response = (HttpServletResponse) servletResponse;
 
         String uri = request.getRequestURI();
-        HttpSession httpSession = request.getSession(false);  // false -- если сессии нет, то она не создается
-        if (httpSession == null && !uri.contains("login")) {
-            response.sendRedirect("login.html");
+        HttpSession session = request.getSession(false);
+
+        if (session == null && !uri.contains("login")) {
+            request.getRequestDispatcher("/login").forward(request, response);
         } else {
             filterChain.doFilter(servletRequest, servletResponse);
         }
@@ -30,6 +31,5 @@ public class AuthenticationFilter implements Filter {
 
     @Override
     public void destroy() {
-        Filter.super.destroy();
     }
 }
