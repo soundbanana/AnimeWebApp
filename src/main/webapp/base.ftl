@@ -21,17 +21,14 @@
         <ul class="nav navbar-nav">
             <li><a href="/main.ftl">Main</a></li>
             <li><a href="#">Characters</a></li>
-            <li><a href="/profile.jsp">Profile</a></li>
+            <li><a href="/profile">Profile</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
-            <li><a href="/registration.ftl"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-            <li><a href="/login.ftl"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+            <li><a href="/registration"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+            <li><a href="/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
         </ul>
     </div>
 </nav>
 
-<#--<div class="content1">-->
-<#--    <div class="content"><@content></@content></div>-->
-<#--</div>-->
 </body>
 </html>
