@@ -14,7 +14,7 @@
 
 <body>
 
-<nav class="navbar navbar-inverse">
+<nav class="navbar navbar-light">
   <div class="container-fluid">
     <div class="navbar-header">
       <a class="navbar-brand" href="#">AnimeWebApp</a>
@@ -67,6 +67,7 @@
   <br>
   Cookie username = <%=cookieUser%>
 </h2>
+<a href="/logout">Logout</a>
 
 </body>
 </html>
