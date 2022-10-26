@@ -5,6 +5,7 @@ import ru.kpfu.itis.chemaev.net.dao.impl.UserDaoImpl;
 import ru.kpfu.itis.chemaev.net.model.User;
 import ru.kpfu.itis.chemaev.net.service.UserService;
 import ru.kpfu.itis.chemaev.net.service.impl.UserServiceImpl;
+import ru.kpfu.itis.chemaev.net.util.LoginValidator;
 import ru.kpfu.itis.chemaev.net.util.PasswordValidator;
 
 import javax.servlet.ServletException;
@@ -38,9 +39,16 @@ public class RegistrationServlet extends HttpServlet {
 
         if (existingUserWithLogin == null) {
             if (PasswordValidator.isValid(password)) {
-                userService.save(new User(login, firstname, lastname, password));
-                resp.sendRedirect("/login");
-                System.out.println("Successful registration");
+                if (LoginValidator.isValid(login)) {
+                    userService.save(new User(login, firstname, lastname, password));
+                    resp.sendRedirect("/login");
+                    System.out.println("Successful registration");
+                }
+                else {
+                    System.out.println("Invalid login");
+                    req.setAttribute("error", "Invalid login");
+                    req.getRequestDispatcher("registration.ftl").forward(req, resp);
+                }
             } else {
                 System.out.println("Invalid password");
                 req.setAttribute("error", "Invalid password");

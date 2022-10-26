@@ -23,6 +23,13 @@
     Password:
     <input type="password" name="password"/>
     <br><br>
+    <p>Login requirements:<br>
+        - no _ or . at the end<br>
+        - (A-z) are only allowed characters<br>
+        - no __ or _. or ._ or .. inside<br>
+        - no _ or . at the beginning<br>
+        - login is 4-20 characters long<br>
+    </p>
     <p>Password requirements:<br>
         - Uppercase and lowercase letter (A-z)<br>
         - Numeric character (0-9)<br>
