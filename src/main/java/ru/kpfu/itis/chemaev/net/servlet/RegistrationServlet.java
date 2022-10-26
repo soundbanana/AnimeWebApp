@@ -5,6 +5,7 @@ import ru.kpfu.itis.chemaev.net.dao.impl.UserDaoImpl;
 import ru.kpfu.itis.chemaev.net.model.User;
 import ru.kpfu.itis.chemaev.net.service.UserService;
 import ru.kpfu.itis.chemaev.net.service.impl.UserServiceImpl;
+import ru.kpfu.itis.chemaev.net.util.PasswordUtil;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -36,12 +37,27 @@ public class RegistrationServlet extends HttpServlet {
         User existingUserWithLogin = userDao.get(login);
 
         if (existingUserWithLogin == null) {
-            userService.save(new User(login, firstname, lastname, password));
-            resp.sendRedirect("/login");
-            System.out.println("Successful registration");
+            int validPassword = PasswordUtil.checkPassword(password);  // check if typed password is valid
+            switch (validPassword) {
+                case 0: {
+                    System.out.println("Invalid password");
+                    req.setAttribute("error", "Invalid password");
+                    req.getRequestDispatcher("registration.ftl").forward(req, resp);
+                }
+                case 1: {
+                    System.out.println("Weak password");
+                    req.setAttribute("error", "Weak password");
+                    req.getRequestDispatcher("registration.ftl").forward(req, resp);
+                }
+                case 2: {
+                    userService.save(new User(login, firstname, lastname, password));
+                    resp.sendRedirect("/login");
+                    System.out.println("Successful registration");
+                }
+            }
         } else {
-            System.out.println("this login already exists");
-            req.setAttribute("error", "this login already exists");
+            System.out.println("This login already exists");
+            req.setAttribute("error", "This login already exists");
             req.getRequestDispatcher("registration.ftl").forward(req, resp);
         }
     }

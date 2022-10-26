@@ -12,12 +12,12 @@
 <form action="login" method="post">
     Login:
     <input type="text" name="login"/>
-    <br>
+    <br><br>
     Password:
     <input type="password" name="password"/>
-    <br>
+    <br><br>
     <input type="submit" value="Login">
-    <br>
+    <br><br>
     <label>
         <input type="checkbox" name="remember_me" checked/>
         Remember me
