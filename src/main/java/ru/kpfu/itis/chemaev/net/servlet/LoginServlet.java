@@ -43,7 +43,7 @@ public class LoginServlet extends HttpServlet {
             } else {
                 System.out.println("Invalid login or password");
                 req.setAttribute("error", "Invalid login or password");
-                resp.sendRedirect("/");
+                req.getRequestDispatcher("login.ftl").forward(req, resp);
             }
         } else {
             System.out.println("User with this login does not exist");

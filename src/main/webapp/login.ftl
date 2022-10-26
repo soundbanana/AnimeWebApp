@@ -8,7 +8,7 @@
 <body>
 
 
-
+<p style="color:red"><#if error??> ${error}</#if></p>
 <form action="login" method="post">
     Login:
     <input type="text" name="login"/>
