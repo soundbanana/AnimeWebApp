@@ -26,7 +26,9 @@
     <p>Password requirements:<br>
         - Uppercase and lowercase letter (A-z)<br>
         - Numeric character (0-9)<br>
-        - Special character (!, %, @, #, etc)</p>
+        - No whitespace<br>
+        - At least 8 characters<br>
+    </p>
     <br>
     <input type="submit" value="Register">
     <br><br>
