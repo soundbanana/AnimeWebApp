@@ -1,7 +1,6 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-<#--    <title><@title></@title></title>-->
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 
@@ -16,7 +15,7 @@
 <nav class="navbar navbar-light">
     <div class="container-fluid">
         <div class="navbar-header">
-            <a class="navbar-brand" href="#">AnimeWebApp</a>
+            <a class="navbar-brand" href="/main.ftl">AnimeWebApp</a>
         </div>
         <ul class="nav navbar-nav">
             <li><a href="/main.ftl">Main</a></li>

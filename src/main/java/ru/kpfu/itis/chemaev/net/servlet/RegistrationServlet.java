@@ -43,8 +43,7 @@ public class RegistrationServlet extends HttpServlet {
                     userService.save(new User(login, firstname, lastname, password));
                     resp.sendRedirect("/login");
                     System.out.println("Successful registration");
-                }
-                else {
+                } else {
                     System.out.println("Invalid login");
                     req.setAttribute("error", "Invalid login");
                     req.getRequestDispatcher("registration.ftl").forward(req, resp);

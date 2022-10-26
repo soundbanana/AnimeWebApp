@@ -27,7 +27,6 @@ public class UserServiceImpl implements UserService {
         return new UserDto(u.getFirstName(), u.getLastName(), u.getLogin());
     }
 
-
     @Override
     public void save(User user) {
         user.setPassword(PasswordUtil.encrypt(user.getPassword()));
