@@ -5,10 +5,35 @@
 <head>
     <meta charset="UTF-8">
     <title>Main page</title>
+    <link rel="stylesheet" href="css/cookies.css">
+    <script  src="js/cookies.js"></script>
 </head>
 <body>
 
+<div class="container">
+    <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#cookieModal">
+        See Cookies
+    </button>
+</div>
+
+<div class="modal fade" id="cookieModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="notice d-flex justify-content-between align-items-center">
+                    <div class="cookie-text">This website uses cookies to personalize content and analyse traffic in order to offer you a better experience.</div>
+                    <div class="buttons d-flex flex-column flex-lg-row">
+                        <a href="#a" class="btn btn-success btn-sm" data-dismiss="modal">I accept</a>
+                        <a href="#a" class="btn btn-secondary btn-sm" data-dismiss="modal">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 <h3>Унесенные призраками</h3><br>
+<a href="/spirited-away-characters">Characters list</a><br><br>
 <b>Обзор: Тихиро с мамой и папой переезжает в новый дом.
     Заблудившись по дороге, они оказываются в странном пустынном городе, где их ждет великолепный пир. Родители с
     жадностью набрасываются на еду и к ужасу девочки превращаются в свиней, став пленниками злой колдуньи Юбабы. Теперь,
